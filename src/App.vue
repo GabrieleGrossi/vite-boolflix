@@ -1,7 +1,6 @@
 <template>
   <div>
-    <AppHeader
-    @research="movieList()"/>
+    <AppHeader/>
     <AppMain/>
     <AppFooter/>
   </div>
@@ -25,18 +24,6 @@ export default{
   data(){
     return{
       store
-    }
-  },
-  methods:{
-    movieList(){
-      axios.get('https://api.themoviedb.org/3/search/movie?api_key=0a1985f8ba6f9af085da000d83018b12&query=' + store.searchBar)
-      .then(function (response) {
-        console.log(response.data);
-        store.apiCall = response.data;
-      })
-      .catch(function (error) {
-        console.log(error);
-      })
     }
   }
 }
