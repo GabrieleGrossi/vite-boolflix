@@ -1,7 +1,7 @@
 <template>
     <div>
         <h1>
-            I'm the main
+            I'm the Main
         </h1>
     </div>
 </template>
