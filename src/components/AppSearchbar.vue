@@ -1,7 +1,7 @@
 <template>
     <div>
-        <input type="text" v-model="store.searchBar">
-        <button>Search film</button>
+        <input type="text" v-model="store.searchBar" @keyup="$emit('research')">
+        <button @click="$emit('research')">Search film</button>
     </div>
 </template>
 <script>

@@ -8,13 +8,19 @@
 </template>
 <script>
 import AppSearchbar from './AppSearchbar.vue';
+import { store } from '../store';
 export default {
     name: 'AppHeader',
+    data(){
+        return{
+            store
+        }
+    },
     components:{
         AppSearchbar
     }
 }
 </script>
-<style>
-    
+<style lang="scss" scoped>
+    @use '../style/general.scss';
 </style>
