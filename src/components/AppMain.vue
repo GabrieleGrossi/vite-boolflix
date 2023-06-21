@@ -1,38 +1,29 @@
 <template>
     <main>
+        <h1>
+            I'm the Main
+        </h1>
+        <h2 class="red">
+            Film
+        </h2>
         <div v-for="movie in store.movies">
-            <h2>
-                Film
-            </h2>
             <h3>
-                {{ movie.original_title }}
+                Originale title:{{ movie.original_title }}
+                Film title:{{ movie.title }}
+                Lenguage:{{ movie.original_language }}
+                Vote:{{ movie.vote_average }}
             </h3>
-            <h4>
-                {{ movie.title }}
-            </h4>
-            <h4>
-                {{ movie.original_lenguage }}
-            </h4>
-            <h4>
-                {{ movie.vote_avarage }}
-            </h4>
         </div>
+        <h2 class="red">
+            Serie
+        </h2>
         <div v-for="serie in store.series">
-            <h2>
-                Serie
-            </h2>
             <h3>
-                {{ serie.original_name }}
+                Originale title:{{ serie.original_name }}
+                Film title:{{ serie.name }}
+                Lenguage:{{ serie.original_language }}
+                Vote:{{ serie.vote_average }}
             </h3>
-            <h4>
-                {{ serie.name }}
-            </h4>
-            <h4>
-                {{ serie.original_lenguage }}
-            </h4>
-            <h4>
-                {{ serie.vote_avarage }}
-            </h4>
         </div>
     </main>
 </template>
@@ -51,5 +42,7 @@ export default {
 }
 </script>
 <style>
-    
+    .red{
+        color: red;
+    }
 </style>

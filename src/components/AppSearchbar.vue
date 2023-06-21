@@ -21,13 +21,15 @@ export default {
     },
     methods: {
         searchMovie(search){
-            axios.get(`${this.apiUrl}movie?${this.tokenAccess}&query=${search}`)
+            axios.get(`${this.apiUrl}movie?${this.tokenAcces}&query=${search}`)
             .then((response)=>{
                 this.store.movies=response.data.results;
+                console.log(response.data.results)
             })
             axios.get(`${this.apiUrl}tv?${this.tokenAcces}&query=${search}`)
             .then((response)=>{
                 this.store.series= response.data.results;
+                console.log(response.data.results)
             })
         }
     },
