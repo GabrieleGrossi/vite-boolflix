@@ -22,7 +22,7 @@ export default {
     methods: {
         searchMovie(search){
             axios.get(`${this.apiUrl}movie?${this.tokenAccess}&query=${search}`)
-            .then ((response)=>{
+            .then((response)=>{
                 this.store.movies=response.data.results;
             })
             axios.get(`${this.apiUrl}tv?${this.tokenAcces}&query=${search}`)
