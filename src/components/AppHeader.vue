@@ -1,8 +1,6 @@
 <template>
     <div class="flex">
-        <h1>
-            Boolfix
-        </h1>
+        <img src="../assets/netflix.jpg" alt="Netflix logo">
         <AppSearchbar/>
     </div>
 </template>
@@ -24,5 +22,9 @@ export default {
     @use '../style/general.scss';
     div{
         background-color: black;
+    }
+    img{
+        width: 150px;
+        margin-left: 1.5rem;
     }
 </style>
