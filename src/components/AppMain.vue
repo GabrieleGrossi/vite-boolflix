@@ -5,9 +5,9 @@
                 Film
             </h2>
             <div class="flex wrap">
-                <div v-for="movie in store.movies" class="card">
+                <div v-for="movie in store.movies" class="card relative">
                     <img :src="posterImg(movie.poster_path)" alt="Movie Poster">
-                    <div >
+                    <div class="absolute">
                         <h3>
                             Originale title:{{ movie.original_title }}
                         </h3>
