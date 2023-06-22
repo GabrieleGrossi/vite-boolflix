@@ -23,3 +23,15 @@ h1{
 .relative{
     position: relative;
 }
+.card{
+    width: calc(100% / 5 - 2rem);
+    margin: 0.4rem;
+    background-color: #2b2a33;
+}
+.flag{
+    width: 15px;
+    height: 15px;
+}
+.star{
+    color: green;
+}
