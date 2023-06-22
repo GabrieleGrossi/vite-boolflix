@@ -11,7 +11,6 @@
             <h3>
                 Originale title:{{ movie.original_title }}
                 Film title:{{ movie.title }}
-                Vote:{{ movie.vote_average }}
             </h3>
             <div v-if="languageImage.includes(movie.original_language + '.jpg')">
                 <img :src="getImageLanguage(movie.original_language + '.jpg')" alt="country flag">
@@ -19,6 +18,12 @@
             <div v-else>
                 {{ movie.original_language }}
             </div>
+
+
+            <span class="star"><i class="fa-solid fa-star" v-for="star in Math.ceil(movie.vote_average / 2)" /></span>
+            <span class="empty-star"><i class="fa-solid fa-star" v-for="emptyStar in 5 - (Math.ceil(movie.vote_average / 2))" /></span>
+
+
         </div>
         <h2 class="red">
             Serie
@@ -28,7 +33,7 @@
             <h3>
                 Originale title:{{ serie.original_name }}
                 Film title:{{ serie.name }}
-                Vote:{{ serie.vote_average }}
+                
             </h3>
             <div v-if="languageImage.includes(serie.original_language + '.jpg')">
                 <img :src="getImageLanguage(serie.original_language + '.jpg')" alt="country flag">
@@ -36,6 +41,8 @@
             <div v-else>
                 {{ serie.original_language }}
             </div>
+            <span class="star"><i class="fa-solid fa-star" v-for="star in Math.ceil(serie.vote_average / 2)" /></span>
+            <span class="empty-star"><i class="fa-solid fa-star" v-for="emptyStar in 5 - (Math.ceil(serie.vote_average / 2))" /></span>
         </div>
     </main>
 </template>
@@ -55,7 +62,7 @@ export default {
                 "es.jpg",
                 "ko.jpg",
                 "ru.jpg"
-            ]
+            ],
         }
     },
     methods:{
@@ -70,8 +77,8 @@ export default {
                 posterLink += link
             }
             return posterLink
-        },
-    } 
+        }
+    },
 }
 </script>
 <style>
@@ -81,5 +88,8 @@ export default {
     img{
         width: 85px;
         height: 100%;
+    }
+    .star{
+        color: green;
     }
 </style>
