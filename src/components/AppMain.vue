@@ -82,6 +82,10 @@ export default {
 }
 </script>
 <style>
+    main{
+        background-color: #2b2a33;
+        height: 85vh;
+    }
     .red{
         color: red;
     }

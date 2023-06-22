@@ -1,7 +1,7 @@
 <template>
-    <div>
+    <div class="flex">
         <h1>
-            I'm the Header
+            Boolfix
         </h1>
         <AppSearchbar/>
     </div>
@@ -22,4 +22,7 @@ export default {
 </script>
 <style lang="scss" scoped>
     @use '../style/general.scss';
+    div{
+        background-color: black;
+    }
 </style>

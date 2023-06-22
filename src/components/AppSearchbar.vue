@@ -1,5 +1,6 @@
 <template>
-    <div>
+    <div class="searchbar">
+        <i class="fa-solid fa-magnifying-glass icon"></i>
         <input type="text" v-model="researchText" @keyup="searchMovie(researchText)">
         <button @click="searchMovie(researchText), researchText=''">Search film</button>
     </div>
@@ -36,5 +37,12 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-    
+    .searchbar{
+        margin:1.5rem 1.5rem;
+
+    }
+    .icon{
+        color: white;
+        margin-right: 1.5rem;
+    }
 </style>
