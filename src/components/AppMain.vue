@@ -1,28 +1,32 @@
 <template>
     <main>
-        <section class="flex">
+        <section>
             <h2 class="red">
                 Film
             </h2>
-            <div class="card">
-                <div v-for="movie in store.movies">
+            <div class="flex wrap">
+                <div v-for="movie in store.movies" class="card">
                     <img :src="posterImg(movie.poster_path)" alt="Movie Poster">
-                    <h3>
-                        Originale title:{{ movie.original_title }}
-                        Film title:{{ movie.title }}
-                    </h3>
-                    <div v-if="languageImage.includes(movie.original_language + '.jpg')">
-                        <img :src="getImageLanguage(movie.original_language + '.jpg')" alt="country flag" class="flag">
-                    </div>
-                    <div v-else>
-                        {{ movie.original_language }}
-                    </div>
+                    <div >
+                        <h3>
+                            Originale title:{{ movie.original_title }}
+                        </h3>
+                        <h3>
+                            Film title:{{ movie.title }}
+                        </h3>
+                        <div v-if="languageImage.includes(movie.original_language + '.jpg')" class="flag">
+                            <img :src="getImageLanguage(movie.original_language + '.jpg')" alt="country flag">
+                        </div>
+                        <div v-else>
+                            {{ movie.original_language }}
+                        </div>
 
 
-                    <span class="star"><i class="fa-solid fa-star" v-for="star in Math.ceil(movie.vote_average / 2)"/>
-                    </span>
-                    <span class="empty-star"><i class="fa-solid fa-star" v-for="emptyStar in 5 - (Math.ceil(movie.vote_average / 2))"/>
-                    </span>
+                        <span class="star"><i class="fa-solid fa-star" v-for="star in Math.ceil(movie.vote_average / 2)"/>
+                        </span>
+                        <span class="empty-star"><i class="fa-solid fa-star" v-for="emptyStar in 5 - (Math.ceil(movie.vote_average / 2))"/>
+                        </span>
+                    </div>
 
 
                 </div>
@@ -32,21 +36,24 @@
             <h2 class="red">
                 Serie
             </h2>
-            <div v-for="serie in store.series">
-                <img :src="posterImg(serie.poster_path)" alt="Series Poster">
-                <h3>
-                    Originale title:{{ serie.original_name }}
-                    Film title:{{ serie.name }}
-                    
-                </h3>
-                <div v-if="languageImage.includes(serie.original_language + '.jpg')">
-                    <img :src="getImageLanguage(serie.original_language + '.jpg')" alt="country flag">
+            <div class="flex wrap">
+                <div v-for="serie in store.series" class="card">
+                    <img :src="posterImg(serie.poster_path)" alt="Series Poster">
+                    <h3>
+                        Originale title:{{ serie.original_name }}                        
+                    </h3>
+                    <h3>
+                        Film title:{{ serie.name }}
+                    </h3>
+                    <div v-if="languageImage.includes(serie.original_language + '.jpg')" class="flag">
+                        <img :src="getImageLanguage(serie.original_language + '.jpg')" alt="country flag">
+                    </div>
+                    <div v-else>
+                        {{ serie.original_language }}
+                    </div>
+                    <span class="star"><i class="fa-solid fa-star" v-for="star in Math.ceil(serie.vote_average / 2)" /></span>
+                    <span class="empty-star"><i class="fa-solid fa-star" v-for="emptyStar in 5 - (Math.ceil(serie.vote_average / 2))" /></span>
                 </div>
-                <div v-else>
-                    {{ serie.original_language }}
-                </div>
-                <span class="star"><i class="fa-solid fa-star" v-for="star in Math.ceil(serie.vote_average / 2)" /></span>
-                <span class="empty-star"><i class="fa-solid fa-star" v-for="emptyStar in 5 - (Math.ceil(serie.vote_average / 2))" /></span>
             </div>
         </section>
     </main>
@@ -89,19 +96,30 @@ export default {
 <style>
     main{
         background-color: #2b2a33;
-        height: 85vh;
+        min-height: 85vh;
     }
     section{
         width: 85%;
+        min-height: 500px;
         background-color: pink;
         margin: 0 auto;
-        margin-bottom: 2rem;
+        padding-top: 2rem;
+        padding-bottom: 2rem;
     }
     .card{
-        width: 80%;
-        margin: 0 auto;
-        height: 500px;
+        width: calc(100% / 5 - 2rem);
+        margin: 0.4rem;
+        background-color: #2b2a33;
     }
+    div.card img{
+        width: 100%;
+        opacity: 1;
+        z-index: 1;
+    }
+    div.card img:hover{
+            opacity: 0;
+            transition: all 0.5s ease-in;
+        }
     .red{
         color: red;
     }
