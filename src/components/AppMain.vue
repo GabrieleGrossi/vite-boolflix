@@ -9,7 +9,7 @@
         <div v-for="movie in store.movies">
             <img :src="posterImg(movie.poster_path)" alt="Movie Poster">
             <div v-if="languageImage.includes(movie.original_language + '.jpg')">
-                <img :src="getImagePath(movie.original_language + '.jpg')" alt="country flag">
+                <img :src="getImageLanguage(movie.original_language + '.jpg')" alt="country flag">
             </div>
             <div v-else>
                 {{ movie.original_language }}
@@ -55,7 +55,7 @@ export default {
         }
     },
     methods:{
-        getImagePath: function (img) {
+        getImageLanguage: function (img) {
             return new URL(`../assets/${img}`, import.meta.url).href;
         },     
         posterImg(link){
