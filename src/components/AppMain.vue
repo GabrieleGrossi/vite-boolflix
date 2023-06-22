@@ -8,18 +8,17 @@
         </h2>
         <div v-for="movie in store.movies">
             <img :src="posterImg(movie.poster_path)" alt="Movie Poster">
+            <h3>
+                Originale title:{{ movie.original_title }}
+                Film title:{{ movie.title }}
+                Vote:{{ movie.vote_average }}
+            </h3>
             <div v-if="languageImage.includes(movie.original_language + '.jpg')">
                 <img :src="getImageLanguage(movie.original_language + '.jpg')" alt="country flag">
             </div>
             <div v-else>
                 {{ movie.original_language }}
             </div>
-            <h3>
-                Originale title:{{ movie.original_title }}
-                Film title:{{ movie.title }}
-                Lenguage:{{ movie.original_language }}
-                Vote:{{ movie.vote_average }}
-            </h3>
         </div>
         <h2 class="red">
             Serie
@@ -29,9 +28,14 @@
             <h3>
                 Originale title:{{ serie.original_name }}
                 Film title:{{ serie.name }}
-                Lenguage:{{serie.original_language }}
                 Vote:{{ serie.vote_average }}
             </h3>
+            <div v-if="languageImage.includes(serie.original_language + '.jpg')">
+                <img :src="getImageLanguage(serie.original_language + '.jpg')" alt="country flag">
+            </div>
+            <div v-else>
+                {{ serie.original_language }}
+            </div>
         </div>
     </main>
 </template>
