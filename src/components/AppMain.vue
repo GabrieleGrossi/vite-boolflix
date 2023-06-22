@@ -38,7 +38,7 @@
             </h2>
             <div class="flex wrap">
                 <div v-for="serie in store.series" class="card relative">
-                    <img :src="posterImg(serie.poster_path)" alt="Series Poster">
+                    <img :src="posterImg(serie.poster_path)" alt="Series Poster" class="index">
                     <div class="absolute">
                         <h3>
                             Originale title:{{ serie.original_name }}                        
@@ -111,11 +111,13 @@ export default {
     div.card img{
         width: 100%;
         opacity: 1;
-        z-index: 1;
     }
     div.card img:hover{
             opacity: 0;
             transition: all 0.5s ease-in;
         }
     
+    .index{
+        z-index: 2;
+    }
 </style>
