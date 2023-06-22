@@ -7,6 +7,13 @@
             Film
         </h2>
         <div v-for="movie in store.movies">
+            <img :src="posterImg(movie.poster_path)" alt="Movie Poster">
+            <div v-if="languageImage.includes(movie.original_language + '.jpg')">
+                <img :src="getImagePath(movie.original_language + '.jpg')" alt="country flag">
+            </div>
+            <div v-else>
+                {{ movie.original_language }}
+            </div>
             <h3>
                 Originale title:{{ movie.original_title }}
                 Film title:{{ movie.title }}
@@ -18,10 +25,11 @@
             Serie
         </h2>
         <div v-for="serie in store.series">
+            <img :src="posterImg(serie.poster_path)" alt="Series Poster">
             <h3>
                 Originale title:{{ serie.original_name }}
                 Film title:{{ serie.name }}
-                Lenguage:{{ serie.original_language }}
+                Lenguage:{{serie.original_language }}
                 Vote:{{ serie.vote_average }}
             </h3>
         </div>
@@ -34,15 +42,40 @@ export default {
     data(){
         return{
             store,
+            languageImage: [
+                "it.jpg",
+                "en.jpg",
+                "ja.jpg",
+                "fr.jpg",
+                "de.jpg",
+                "es.jpg",
+                "ko.jpg",
+                "ru.jpg"
+            ]
         }
     },
     methods:{
-
+        getImagePath: function (img) {
+            return new URL(`../assets/${img}`, import.meta.url).href;
+        },     
+        posterImg(link){
+            let posterLink = 'https://image.tmdb.org/t/p/w500/'
+            if(link === null){
+                posterLink = 'https://www.tgv.com.my/assets/images/404/movie-poster.jpg'
+            }else{
+                posterLink += link
+            }
+            return posterLink
+        },
     } 
 }
 </script>
 <style>
     .red{
         color: red;
+    }
+    img{
+        width: 85px;
+        height: 100%;
     }
 </style>
