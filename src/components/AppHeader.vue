@@ -1,6 +1,7 @@
 <template>
     <div class="flex">
-        <img src="../assets/netflix.jpg" alt="Netflix logo">
+        <!--Credits for the Boolflix Logo to Emanuela Pau-->
+        <img src="../assets/boolflix_logo.png" alt="Netflix logo">
         <AppSearchbar/>
     </div>
 </template>

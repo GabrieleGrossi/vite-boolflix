@@ -1,7 +1,7 @@
 <template>
     <div class="searchbar">
         <i class="fa-solid fa-magnifying-glass icon"></i>
-        <input type="text" v-model="researchText" @keyup="searchMovie(researchText)">
+        <input type="text" v-model="researchText" @keyup.enter="searchMovie(researchText)">
         <button @click="searchMovie(researchText), researchText=''">Search film</button>
     </div>
 </template>

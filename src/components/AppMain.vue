@@ -38,7 +38,7 @@
             </h2>
             <div class="flex wrap">
                 <div v-for="serie in store.series" class="card relative">
-                    <img :src="posterImg(serie.poster_path)" alt="Series Poster">
+                    <img :src="posterImg(serie.poster_path)" alt="Series Poster" class="hover">
                     <div class="absolute">
                         <h3>
                             Originale title:{{ serie.original_name }}                        
@@ -95,7 +95,8 @@ export default {
     },
 }
 </script>
-<style>
+<style lang="scss" scoped>
+    @use '../style/general.scss';
     main{
         background-color: #2b2a33;
         min-height: 85vh;
