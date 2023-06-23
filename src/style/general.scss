@@ -14,18 +14,6 @@ h1{
 .wrap{
     flex-wrap: wrap;
 }
-.absolute{
-    position: absolute;
-    top: 0;
-    left: 0;
-    color: transparent;
-    &:hover{
-        color: white;
-    }
-}
-.relative{
-    position: relative;
-}
 .card{
     width: calc(100% / 5 - 2rem);
     margin: 0.4rem;
@@ -44,7 +32,7 @@ h1{
     div.cardInfo{
         opacity: 1;
     }
-    
+
 }
 .flag{
     width: 25px;

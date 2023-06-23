@@ -1,21 +1,21 @@
 <template>
     <div>
         <section>
-            <h2 class="red">
+            <h2>
                 Serie
             </h2>
             <div class="flex wrap">
                 <div v-for="serie in store.series" class="card relative hover">
-                    <img :src="posterImg(serie.poster_path)" alt="Series Poster" >
-                    <div class="absolute">
+                    <img :src="posterImg(serie.poster_path)" alt="Series Poster" class="poster">
+                    <div class="cardinfo">
                         <h3>
                             Originale title:{{ serie.original_name }}                        
                         </h3>
                         <h3>
                             Film title:{{ serie.name }}
                         </h3>
-                        <div v-if="languageImage.includes(serie.original_language + '.jpg')" class="flag">
-                            <img :src="getImageLanguage(serie.original_language + '.jpg')" alt="country flag">
+                        <div v-if="languageImage.includes(serie.original_language + '.jpg')">
+                            <img :src="getImageLanguage(serie.original_language + '.jpg')" alt="country flag" class="flag">
                         </div>
                         <div v-else>
                             {{ serie.original_language }}
@@ -69,22 +69,41 @@ export default {
 </script>
 <style lang="scss" scoped>
 @use '../style/general.scss';
-    section{
+section{
         width: 85%;
         min-height: 500px;
-        background-color: pink;
+        color: white;
         margin: 0 auto;
         padding-top: 2rem;
         padding-bottom: 2rem;
     }
-    img{
+    .poster{
         width: 100%;
         height: 100%;
-        z-index: 1;
-        transition: all 0.5s ease-in;
-
-        &:hover{
+        object-fit: cover;
+        transition: all 1s ease-in;
+    }
+    .card{
+    width: calc(100% / 5 - 2rem);
+    margin: 0.4rem;
+    background-color: #2b2a33;
+    color: white;
+    position: relative;
+        div.cardInfo{
+            display: block;
             opacity: 0;
+        }
+        .flag{
+            width: 25px;
+            height: 15px;
+        }
+    }
+    .card:hover{
+        div.cardInfo{
+            opacity: 1;
+        }
+        .poster{
+            height: 45%
         }
     }
 </style>

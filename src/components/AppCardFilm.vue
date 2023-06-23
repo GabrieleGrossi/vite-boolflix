@@ -1,6 +1,6 @@
 <template>
     <section>
-            <h2 class="red">
+            <h2>
                 Film
             </h2>
             <div class="flex wrap">
@@ -69,16 +69,16 @@ export default {
     section{
         width: 85%;
         min-height: 500px;
-        background-color: pink;
         margin: 0 auto;
         padding-top: 2rem;
         padding-bottom: 2rem;
+        color: white;
     }
     .poster{
         width: 100%;
         height: 100%;
         object-fit: cover;
-        transition: all 0.5s ease-in;
+        transition: all 1s ease-in;
     }
     .card{
     width: calc(100% / 5 - 2rem);
@@ -100,7 +100,7 @@ export default {
             opacity: 1;
         }
         .poster{
-            height: 65%;
+            height: 45%
         }
     }
 </style>
