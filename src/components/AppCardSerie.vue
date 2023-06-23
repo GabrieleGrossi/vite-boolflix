@@ -9,12 +9,15 @@
                     <img :src="posterImg(serie.poster_path)" alt="Series Poster" class="poster">
                     <div class="cardinfo">
                         <h3>
-                            Originale title:{{ serie.original_name }}                        
+                            Originale title:
+                            <br>{{ serie.original_name }}                     
                         </h3>
                         <h3>
-                            Film title:{{ serie.name }}
+                            Film title: 
+                            <br>{{ serie.name }}
                         </h3>
                         <div v-if="languageImage.includes(serie.original_language + '.jpg')">
+                            <span>Original language : </span>
                             <img :src="getImageLanguage(serie.original_language + '.jpg')" alt="country flag" class="flag">
                         </div>
                         <div v-else>
@@ -45,7 +48,6 @@ export default {
                 "ko.jpg",
                 "ru.jpg"
             ],
-            cardVisible: false
         }
     },
     methods:{
@@ -61,9 +63,6 @@ export default {
             }
             return posterLink
         },
-        visibleInfo(){
-            this.cardVisible = !this.cardVisible
-        }
     },
 }
 </script>

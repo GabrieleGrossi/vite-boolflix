@@ -14,6 +14,7 @@
                             Film title:{{ movie.title }}
                         </h3>
                         <div v-if="languageImage.includes(movie.original_language + '.jpg')">
+                            <span>Original language : </span>
                             <img :src="getImageLanguage(movie.original_language + '.jpg')" alt="country flag" class="flag">
                         </div>
                         <div v-else>
