@@ -18,7 +18,10 @@ h1{
     position: absolute;
     top: 0;
     left: 0;
-    color: white;
+    color: transparent;
+    &:hover{
+        color: white;
+    }
 }
 .relative{
     position: relative;
