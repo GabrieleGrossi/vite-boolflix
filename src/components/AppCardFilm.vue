@@ -3,18 +3,18 @@
             <h2 class="red">
                 Film
             </h2>
-            <div class="flex wrap" @click="visibleInfo">
-                <div v-for="movie in store.movies" class="card relative">
-                    <img :src="posterImg(movie.poster_path)" alt="Movie Poster" class="hover">
-                    <div class="absolute">
+            <div class="flex wrap">
+                <div v-for="movie in store.movies" class="card">
+                    <img :src="posterImg(movie.poster_path)" alt="Movie Poster" class="poster">
+                    <div class="cardinfo">
                         <h3>
                             Originale title:{{ movie.original_title }}
                         </h3>
                         <h3>
                             Film title:{{ movie.title }}
                         </h3>
-                        <div v-if="languageImage.includes(movie.original_language + '.jpg')" class="flag">
-                            <img :src="getImageLanguage(movie.original_language + '.jpg')" alt="country flag">
+                        <div v-if="languageImage.includes(movie.original_language + '.jpg')">
+                            <img :src="getImageLanguage(movie.original_language + '.jpg')" alt="country flag" class="flag">
                         </div>
                         <div v-else>
                             {{ movie.original_language }}
@@ -45,7 +45,6 @@ export default {
                 "ko.jpg",
                 "ru.jpg"
             ],
-            cardVisible: false
         }
     },
     methods:{
@@ -61,9 +60,7 @@ export default {
             }
             return posterLink
         },
-        visibleInfo(){
-            this.cardVisible = !this.cardVisible
-        }
+        
     },
 }
 </script>
@@ -77,14 +74,33 @@ export default {
         padding-top: 2rem;
         padding-bottom: 2rem;
     }
-    img{
+    .poster{
         width: 100%;
         height: 100%;
-        z-index: 1;
+        object-fit: cover;
         transition: all 0.5s ease-in;
-
-        &:hover{
+    }
+    .card{
+    width: calc(100% / 5 - 2rem);
+    margin: 0.4rem;
+    background-color: #2b2a33;
+    color: white;
+    position: relative;
+        div.cardInfo{
+            display: block;
             opacity: 0;
+        }
+        .flag{
+            width: 25px;
+            height: 15px;
+        }
+    }
+    .card:hover{
+        div.cardInfo{
+            opacity: 1;
+        }
+        .poster{
+            height: 65%;
         }
     }
 </style>

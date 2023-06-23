@@ -5,8 +5,8 @@
                 Serie
             </h2>
             <div class="flex wrap">
-                <div v-for="serie in store.series" class="card relative">
-                    <img :src="posterImg(serie.poster_path)" alt="Series Poster" class="hover">
+                <div v-for="serie in store.series" class="card relative hover">
+                    <img :src="posterImg(serie.poster_path)" alt="Series Poster" >
                     <div class="absolute">
                         <h3>
                             Originale title:{{ serie.original_name }}                        

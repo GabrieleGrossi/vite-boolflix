@@ -30,6 +30,21 @@ h1{
     width: calc(100% / 5 - 2rem);
     margin: 0.4rem;
     background-color: #2b2a33;
+    transition: all 1s ease-out;
+    overflow: hidden;
+    position: relative;
+
+
+    div.cardInfo{
+        display: block;
+        opacity: 0;
+    }
+}
+.card:hover{
+    div.cardInfo{
+        opacity: 1;
+    }
+    
 }
 .flag{
     width: 25px;
@@ -37,7 +52,4 @@ h1{
 }
 .star{
     color: green;
-}
-.hover:hover{
-    opacity: 0;
 }
